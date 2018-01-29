@@ -1,0 +1,21 @@
+  <div class="wrapper">
+    <form class="form-signin" (ngSubmit)="onSubmit()" [hidden]="loggedIn">       
+      <h2 class="clean-font">로그인</h2>
+
+      <input type="text" class="form-control" name="username" [(ngModel)]="username" placeholder="아이디" name="username" required autofocus="" />
+      <br />
+
+      <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="비밀번호" required /> 
+      <div class="form-group">     
+      <br/>
+      <label >
+         <input type="checkbox" name="remember-me" id="remember-me" />&nbsp;<span class="clean-font">기억하기</span>
+      </label>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">로그인</button>   
+    </form>
+    <div [hidden]="!loggedIn">
+      <h2>환영합니다! 어드민 페이지입니다.</h2>
+    </div>
+  </div>
+
