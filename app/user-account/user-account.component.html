@@ -1,0 +1,32 @@
+<h1>유저 계정 페이지</h1>
+
+<table id="userTable" class="table table-striped" cellspacing="0" width="100%">
+	<thead>
+		<tr>
+			<th>아이디</th>
+			<th>이름</th>
+			<th>성</th>
+			<th>이메일</th>
+			<th>핸드폰 번호</th>
+			<th>기본 계좌</th>
+			<th>예금 계좌</th>
+			<th>활성화 여부</th>
+			<th>실행</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let user of userList">
+			<td>{{user.username}}</td>
+			<td>{{user.firstName}}</td>
+			<td>{{user.lastName}}</td>
+			<td>{{user.email}}</td>
+			<td>{{user.phone}}</td>
+			<td><a (click)="onSelectPrimary(user.username)" style="cursor: pointer;">{{user.primaryAccount.accountBalance}}</a></td>
+			<td><a (click)="onSelectSavings(user.username)" style="cursor: pointer;">{{user.savingsAccount.accountBalance}}</a></td>
+			<td>{{user.enabled}}</td>
+			<td [hidden]="user.enabled"><a (click)="enableUser(user.username)" style="cursor: pointer;">활성화</a></td>
+			<td [hidden]="!user.enabled"><a (click)="disableUser(user.username)" style="cursor: pointer;">비활성화</a></td>
+		</tr>
+	</tbody>
+</table>   
+
